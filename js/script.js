@@ -1,19 +1,20 @@
 window.addEventListener('DOMContentLoaded', () => {
 // modal
 	const modalUp = () => {
-		const modalCallback = document.querySelector('.modal-callback'), // окно
+		const modalCallback = document.getElementById('.callback'), // окно
 			btn = document.querySelector('.callback-btn'),
 			modalOverlay = document.querySelector('.modal-overlay'),
 			modalClose = document.querySelector('.modal-close');
+		// console.log(modalCallback);
 		function binModal(trigger, modal, close) {
 			// открытие модального окна
 			trigger.addEventListener('click', e => {
-				// запрещаем стандартное событие. чтобы небыло перезагрузки
-				e.preventDefault();
+				e.preventDefault();  // запрещаем стандартное событие. чтобы небыло перезагрузки
 				modal.style.display = 'block';
 				modalOverlay.style.display = 'block';
 				document.body.style.overflow = 'hidden';
 			});
+			// console.log(modal);
 			// закрытие окна
 			close.addEventListener('click', () => {
 				modal.style.display = 'none';

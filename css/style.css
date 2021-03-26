@@ -262,7 +262,7 @@ a.absolute {
 	padding: 55px 25px 35px;
 }
 .modal-overlay {
-	/* display: none; */
+	display: none;
 	position: fixed;
 	width: 100%;
 	height: 100vh;
@@ -282,7 +282,7 @@ a.absolute {
 	cursor: pointer;
 }
 .modal-callback {
-	/* display: none; */
+	display: none;
 	position: fixed;
 	top: 20%;
 	left: 50%;
@@ -1210,19 +1210,34 @@ video#video_background {
 	font-weight: bold;
 	color: #2fab6d;
 }
-
 .up {
 	position: fixed;
+	display: inline-block;
 	bottom: 50px;
-	right: 50px;
+	right: 20px;
 	width: 70px;
 	height: 70px;
 	z-index: 300;
+	text-align: center;
 	border: 4px solid #e9bb26;
 	padding: 0 2px;
 	cursor: pointer;
 	background-color: rgba(0, 0, 0, 0.6);
+	opacity: 0;
+	/* visibility: hidden; */
+  	transition: all .3s ease-in-out;
 }
+.up img {
+	position: relative;
+	top: 12px;
+	right: -1px;
+	transition: all .3s ease-in-out;
+}
+.up-show {
+	display: block;
+	opacity: 1;
+ }
+
 
 @media only screen and (min-width: 992px) {
 	.services-elements > .row > hr:nth-of-type(2n) {
