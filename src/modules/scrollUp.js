@@ -1,5 +1,4 @@
-// // Кнопка вверх
-// (function() {
+// Кнопка вверх
 const scrollUp = () => {
 	const btnUp = document.querySelector('.up');
 	function trackScroll() {

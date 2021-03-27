@@ -38,7 +38,18 @@ eval("\nmodule.exports = function () {\n\treturn /[\\u001b\\u009b][[()#;?]*(?:[0
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_modalUp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modalUp */ \"./src/modules/modalUp.js\");\n/* harmony import */ var _modules_scrollUp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/scrollUp */ \"./src/modules/scrollUp.js\");\n\n // modal\n\n(0,_modules_modalUp__WEBPACK_IMPORTED_MODULE_0__.default)(); // кнопка скрола\n\n(0,_modules_scrollUp__WEBPACK_IMPORTED_MODULE_1__.default)();\n\n//# sourceURL=webpack://diplom/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_modalUp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modalUp */ \"./src/modules/modalUp.js\");\n/* harmony import */ var _modules_scrollUp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/scrollUp */ \"./src/modules/scrollUp.js\");\n/* harmony import */ var _modules_anchorLink__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/anchorLink */ \"./src/modules/anchorLink.js\");\n/* harmony import */ var _modules_toggleAccordion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/toggleAccordion */ \"./src/modules/toggleAccordion.js\");\n/* harmony import */ var _modules_toggleAccordion__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_toggleAccordion__WEBPACK_IMPORTED_MODULE_3__);\n\n\n\n // modal\n\n(0,_modules_modalUp__WEBPACK_IMPORTED_MODULE_0__.default)(); // кнопка скрола\n\n(0,_modules_scrollUp__WEBPACK_IMPORTED_MODULE_1__.default)(); // прокрутка к якорю\n\n(0,_modules_anchorLink__WEBPACK_IMPORTED_MODULE_2__.default)(); // аккардион\n\n_modules_toggleAccordion__WEBPACK_IMPORTED_MODULE_3___default()();\n\n//# sourceURL=webpack://diplom/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/anchorLink.js":
+/*!***********************************!*\
+  !*** ./src/modules/anchorLink.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === \"undefined\" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === \"number\") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError(\"Invalid attempt to iterate non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it[\"return\"] != null) it[\"return\"](); } finally { if (didErr) throw err; } } }; }\n\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\n\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }\n\nvar anchorLink = function anchorLink() {\n  // Найти все ссылки начинающиеся на #\n  var anchors = document.querySelectorAll('a[href^=\"#\"]'); // Цикл по всем ссылкам\n\n  var _iterator = _createForOfIteratorHelper(anchors),\n      _step;\n\n  try {\n    var _loop = function _loop() {\n      var anchor = _step.value;\n      // каждому якорю присваиваем обработчик события\n      anchor.addEventListener(\"click\", function (e) {\n        e.preventDefault(); // Предотвратить стандартное поведение ссылок\n        // Атрибут href у ссылки, если его нет то перейти к body (наверх не плавно)\n\n        var blockID = anchor.hasAttribute('href') ? anchor.getAttribute('href') : 'body'; // Плавная прокрутка до элемента с id = href у ссылки\n\n        document.querySelector(blockID).scrollIntoView({\n          behavior: \"smooth\",\n          block: \"start\"\n        });\n      });\n    };\n\n    for (_iterator.s(); !(_step = _iterator.n()).done;) {\n      _loop();\n    }\n  } catch (err) {\n    _iterator.e(err);\n  } finally {\n    _iterator.f();\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (anchorLink);\n\n//# sourceURL=webpack://diplom/./src/modules/anchorLink.js?");
 
 /***/ }),
 
@@ -60,7 +71,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n// // Кнопка вверх\n// (function() {\nvar scrollUp = function scrollUp() {\n  var btnUp = document.querySelector('.up');\n\n  function trackScroll() {\n    var scrolled = window.pageYOffset;\n    var clientHeight = document.documentElement.clientHeight;\n    clientHeight = 30; // условия для класса show\n\n    if (scrolled > clientHeight) {\n      btnUp.classList.add('up-show');\n    }\n\n    if (scrolled < clientHeight) {\n      btnUp.classList.remove('up-show');\n    }\n  } // скорость прокрутки.\n\n\n  function backToTop() {\n    if (window.pageYOffset > 0) {\n      window.scrollBy(0, -80);\n      setTimeout(backToTop, 0);\n    }\n  } // scroll отслеживать прокрутку документа(т.е. страницы)\n\n\n  window.addEventListener('scroll', trackScroll); // click отслеживать нажатие на кнопку и приводить в действие скролл «наверх»\n\n  btnUp.addEventListener('click', backToTop);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (scrollUp);\n\n//# sourceURL=webpack://diplom/./src/modules/scrollUp.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n// Кнопка вверх\nvar scrollUp = function scrollUp() {\n  var btnUp = document.querySelector('.up');\n\n  function trackScroll() {\n    var scrolled = window.pageYOffset;\n    var clientHeight = document.documentElement.clientHeight;\n    clientHeight = 30; // условия для класса show\n\n    if (scrolled > clientHeight) {\n      btnUp.classList.add('up-show');\n    }\n\n    if (scrolled < clientHeight) {\n      btnUp.classList.remove('up-show');\n    }\n  } // скорость прокрутки.\n\n\n  function backToTop() {\n    if (window.pageYOffset > 0) {\n      window.scrollBy(0, -80);\n      setTimeout(backToTop, 0);\n    }\n  } // scroll отслеживать прокрутку документа(т.е. страницы)\n\n\n  window.addEventListener('scroll', trackScroll); // click отслеживать нажатие на кнопку и приводить в действие скролл «наверх»\n\n  btnUp.addEventListener('click', backToTop);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (scrollUp);\n\n//# sourceURL=webpack://diplom/./src/modules/scrollUp.js?");
+
+/***/ }),
+
+/***/ "./src/modules/toggleAccordion.js":
+/*!****************************************!*\
+  !*** ./src/modules/toggleAccordion.js ***!
+  \****************************************/
+/***/ (() => {
+
+eval("function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === \"undefined\" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === \"number\") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError(\"Invalid attempt to iterate non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\"); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it[\"return\"] != null) it[\"return\"](); } finally { if (didErr) throw err; } } }; }\n\nfunction _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === \"string\") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === \"Object\" && o.constructor) n = o.constructor.name; if (n === \"Map\" || n === \"Set\") return Array.from(o); if (n === \"Arguments\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }\n\nfunction _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }\n\nvar toggleAccordion = function toggleAccordion() {\n  var accordeonElement = document.querySelectorAll('.accordeon-element'); // console.log(accordeonElement);\n\n  var item;\n\n  var _iterator = _createForOfIteratorHelper(accordeonElement),\n      _step;\n\n  try {\n    for (_iterator.s(); !(_step = _iterator.n()).done;) {\n      item = _step.value;\n      // console.log(item);\n      // обращаемся  к item и делаем прослушку события\n      item.addEventListener('click', function (el) {\n        // прверка, если this на который кликнули\n        if (this.classList.contains('active')) {\n          this.classList.remove('active');\n        } else {\n          var _iterator2 = _createForOfIteratorHelper(accordeonElement),\n              _step2;\n\n          try {\n            for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {\n              el = _step2.value;\n              el.classList.remove('active');\n            }\n          } catch (err) {\n            _iterator2.e(err);\n          } finally {\n            _iterator2.f();\n          }\n\n          this.classList.add('active');\n        }\n      });\n    }\n  } catch (err) {\n    _iterator.e(err);\n  } finally {\n    _iterator.f();\n  }\n};\n\ntoggleAccordion();\n\n//# sourceURL=webpack://diplom/./src/modules/toggleAccordion.js?");
 
 /***/ }),
 
@@ -434,6 +455,18 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 	__webpack_require__.i = [];
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -462,7 +495,7 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("be2ef1790d1399b8a333")
+/******/ 		__webpack_require__.h = () => ("584ca338ed7adf39ff30")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

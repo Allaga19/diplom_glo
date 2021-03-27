@@ -9,7 +9,6 @@ module.exports = {
 		// publicPath: '/dist'
 	},
 	mode: 'production',
-	
 	module: {
 		rules: [
 			{
