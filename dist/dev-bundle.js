@@ -49,7 +49,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n// modal\nvar modalUp = function modalUp() {\n  var modalCallback = document.getElementById('callback'),\n      // окно\n  btn = document.getElementById('callback-btn'),\n      modalOverlay = document.querySelector('.modal-overlay'),\n      modalClose = document.querySelector('.modal-close');\n\n  document.querySelector(\".callback-btn\").oncontextmenu = function () {\n    return false;\n  };\n\n  function binModal(trigger, modal, close) {\n    // открытие модального окна\n    trigger.addEventListener('click', function (e) {\n      // запрещаем стандартное событие. чтобы небыло перезагрузки\n      e.preventDefault();\n      modal.style.display = 'block';\n      modalOverlay.style.display = 'block';\n      document.body.style.overflow = 'hidden';\n    }); // закрытие окна\n\n    close.addEventListener('click', function () {\n      modal.style.display = 'none';\n      modalOverlay.style.display = 'none';\n      document.body.style.overflow = '';\n    }); // подложка\n\n    modal.addEventListener('click', function (e) {\n      if (e.target === modal) {\n        modal.style.display = 'none';\n        modalOverlay.style.display = 'none';\n      }\n    });\n  }\n\n  binModal(btn, modalCallback, modalClose);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modalUp);\n\n//# sourceURL=webpack://diplom/./src/modules/modalUp.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n// modal\nvar modalUp = function modalUp() {\n  var modalCallback = document.querySelector('.modal-callback'),\n      // окно\n  callbackBtn = document.querySelectorAll('.callback-btn'),\n      modalOverlay = document.querySelector('.modal-overlay'),\n      modalClose = document.querySelector('.modal-close'); // открытие окна\n\n  callbackBtn.forEach(function (elem) {\n    elem.addEventListener('click', function () {\n      modalCallback.style.display = 'block';\n      modalOverlay.style.display = 'block';\n    });\n  }); // крестик\n\n  modalClose.addEventListener('click', function () {\n    modalCallback.style.display = 'none';\n    modalOverlay.style.display = 'none';\n  }); // подложка\n\n  modalOverlay.addEventListener('click', function () {\n    modalCallback.style.display = 'none';\n    modalOverlay.style.display = 'none';\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modalUp);\n\n//# sourceURL=webpack://diplom/./src/modules/modalUp.js?");
 
 /***/ }),
 
@@ -451,7 +451,7 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("bcda4c7b9fe45dfd2893")
+/******/ 		__webpack_require__.h = () => ("1b06f79bfb83feeef28a")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
