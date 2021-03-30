@@ -1,7 +1,7 @@
 // modal
 const modalUp = () => {
-	const modalCallback = document.getElementById('callback'), // окно
-		btn = document.getElementById('callback-btn'),
+	const modalCallback = document.querySelector('.modal-callback'), // окно
+		callbackBtn = document.querySelectorAll('.callback-btn'),
 		modalOverlay = document.querySelector('.modal-overlay'),
 		modalClose = document.querySelector('.modal-close');
 	document.querySelector(".callback-btn").oncontextmenu = function() {
@@ -9,12 +9,11 @@ const modalUp = () => {
 	};
 	function binModal(trigger, modal, close) {
 		// открытие модального окна
-		trigger.addEventListener('click', e => {
-			// запрещаем стандартное событие. чтобы небыло перезагрузки
-			e.preventDefault();
-			modal.style.display = 'block';
-			modalOverlay.style.display = 'block';
-			document.body.style.overflow = 'hidden';
+		trigger.forEach(elem => {
+			elem.addEventListener('click', () => {
+				modalCallback.style.display = 'block';
+				modalOverlay.style.display = 'block';
+			});
 		});
 		// закрытие окна
 		close.addEventListener('click', () => {
@@ -23,13 +22,11 @@ const modalUp = () => {
 			document.body.style.overflow = '';
 		});
 		// подложка
-		modal.addEventListener('click', e => {
-			if (e.target === modal) {
-				modal.style.display = 'none';
-				modalOverlay.style.display = 'none';
-			}
+		modal.addEventListener('click', () => {
+			modalCallback.style.display = 'none';
+			modalOverlay.style.display = 'none';
 		});
 	}
-	binModal(btn, modalCallback, modalClose);
+	binModal(callbackBtn, modalOverlay, modalClose);
 };
 export default modalUp;
